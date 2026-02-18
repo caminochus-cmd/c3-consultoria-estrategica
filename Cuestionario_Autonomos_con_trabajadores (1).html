@@ -18,16 +18,12 @@
     MEJORAS V1.2:
     ✓ Header fijo sin solapamientos (banner + panel de control)
     ✓ Contador de respuestas en tiempo real
-    ✓ Integración con Make.com (webhook configurerable)
     ✓ Sistema de notificaciones mejorado (success/error/info)
     ✓ Diseño responsive optimizado
     ✓ Código modular y escalable
     ✓ Branding C³ aplicado consistentemente
     ✓ Funcionalidades PDF mantenidas sin cambios
     
-    CONFIGURACIÓN MAKE.COM:
-    - Editar la variable MAKE_WEBHOOK_URL en la función enviarAMake()
-    - URL del webhook: línea ~12390
     
     ESTRUCTURA:
     - Header fijo: Banner + Panel de control
@@ -10220,14 +10216,11 @@ const preguntasTexto = preguntasInfo;
         // Exportar a PDF - VERSIÓN COMPLETA CON RESÚMENES Y MARCA DE AGUA
         
         // ============================================
-        // INTEGRACIÓN CON MAKE.COM
         // ============================================
         
-        // CONFIGURACIÓN DEL WEBHOOK DE MAKE.COM
-        // Reemplaza esta URL con tu webhook de Make.com
-        const MAKE_WEBHOOK_URL = 'https://hook.us1.make.com/TU_WEBHOOK_AQUI';
         
-        // Función para enviar datos a Make.com
+        
+        // Función para enviar datos a Email directo
         
         // ═══════════════════════════════════════════════════════════════
         // ENVÍO POR EMAIL A camino.chus@gmail.com
@@ -10239,110 +10232,7 @@ const preguntasTexto = preguntasInfo;
         // Obtén tu Access Key gratis en: https://web3forms.com
         // ═══════════════════════════════════════════════════════════════
         
-        async function enviarAMake() {
-            try {
-                // Verificar que hay respuestas
-                const datosFormulario = recopilarDatosCompletos();
-                const respondidas = datosFormulario.metadata.preguntas_respondidas;
-                
-                if (respondidas === 0) {
-                    alert('⚠️ No hay respuestas para enviar. Por favor, completa al menos una pregunta.');
-                    return false;
-                }
-                
-                // Confirmar envío
-                const confirmar = confirm(
-                    `¿Enviar cuestionario a C³ Consultoría?\n\n` +
-                    `📋 ${datosFormulario.metadata.formulario}\n` +
-                    `✓ ${respondidas} de ${datosFormulario.metadata.total_preguntas} preguntas respondidas\n` +
-                    `📧 Se enviará a: camino.chus@gmail.com`
-                );
-                
-                if (!confirmar) {
-                    return false;
-                }
-                
-                // Mostrar indicador de carga
-                const btnEnviar = document.querySelector('[onclick*="enviarAMake"]');
-                if (btnEnviar) {
-                    btnEnviar.disabled = true;
-                    btnEnviar.innerHTML = '<span>⏳ Enviando...</span>';
-                }
-                
-                // Preparar datos para Web3Forms
-                const payload = {
-                    access_key: "TU_WEB3FORMS_ACCESS_KEY_AQUI", // Obtener en https://web3forms.com
-                    subject: `C³ Cuestionario: ${datosFormulario.metadata.formulario}`,
-                    from_name: "Sistema C³ Consultoría",
-                    to_email: "camino.chus@gmail.com",
-                    
-                    // Metadatos del cuestionario
-                    tipo_cuestionario: datosFormulario.metadata.formulario,
-                    fecha_envio: new Date().toLocaleString('es-ES'),
-                    preguntas_respondidas: respondidas,
-                    total_preguntas: datosFormulario.metadata.total_preguntas,
-                    porcentaje_completado: Math.round((respondidas / datosFormulario.metadata.total_preguntas) * 100) + '%',
-                    promedio_general: datosFormulario.estadisticas?.promedioGeneral?.toFixed(2) || 'N/A',
-                    
-                    // Datos completos en JSON
-                    datos_json: JSON.stringify(datosFormulario, null, 2)
-                };
-                
-                // Enviar con Web3Forms
-                const response = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                });
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    alert('✅ ¡Cuestionario enviado correctamente!\n\nGracias por completar el cuestionario.\nRecibirás una confirmación en tu email (si lo proporcionaste).\nNos pondremos en contacto contigo pronto.');
-                    
-                    // Restaurar botón
-                    if (btnEnviar) {
-                        btnEnviar.disabled = false;
-                        btnEnviar.innerHTML = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg><span>ENVIAR A C³</span>';
-                    }
-                    
-                    return true;
-                } else {
-                    throw new Error(result.message || 'Error en el servidor');
-                }
-                
-            } catch (error) {
-                console.error('Error al enviar:', error);
-                
-                let mensajeError = '❌ Error al enviar el cuestionario.\n\n';
-                
-                if (error.message && error.message.includes('access_key')) {
-                    mensajeError += '⚠️ CONFIGURACIÓN PENDIENTE:\n' +
-                                  '1. Regístrate gratis en https://web3forms.com\n' +
-                                  '2. Ingresa tu email: camino.chus@gmail.com\n' +
-                                  '3. Copia el Access Key\n' +
-                                  '4. Reemplaza "TU_WEB3FORMS_ACCESS_KEY_AQUI" en el código\n\n' +
-                                  'Alternativamente, genera el PDF y envíalo a: camino.chus@gmail.com';
-                } else {
-                    mensajeError += 'Por favor, verifica tu conexión a internet e intenta de nuevo.\n' +
-                                  'Si el problema persiste, genera el PDF y envíalo manualmente a: camino.chus@gmail.com';
-                }
-                
-                alert(mensajeError);
-                
-                // Restaurar botón
-                const btnEnviar = document.querySelector('[onclick*="enviarAMake"]');
-                if (btnEnviar) {
-                    btnEnviar.disabled = false;
-                    btnEnviar.innerHTML = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg><span>ENVIAR A C³</span>';
-                }
-                
-                return false;
-            }
-        }
+        
         
         // Función para recopilar datos en formato JSON estructurado
         function recopilarDatosCompletos() {
@@ -10386,6 +10276,116 @@ const preguntasTexto = preguntasInfo;
                     }
                 }
             }
+
+
+        // ═══════════════════════════════════════════════════════════════
+        // ═══════════════════════════════════════════════════════════════
+        
+        async function enviarAMake() {
+            try {
+                console.log('🚀 Iniciando envío por email...');
+                
+                // 1. Recopilar datos completos
+                const datosFormulario = recopilarDatosCompletos();
+                const respondidas = datosFormulario.metadata.preguntas_respondidas;
+                
+                console.log('📊 Datos recopilados:', {
+                    respondidas: respondidas,
+                    total: datosFormulario.metadata.total_preguntas
+                });
+                
+                if (respondidas === 0) {
+                    alert('⚠️ No hay respuestas para enviar.\n\nPor favor, completa al menos una pregunta.');
+                    return false;
+                }
+                
+                // 2. Confirmar envío
+                if (!confirm(
+                    '📧 ¿Enviar cuestionario por email?\n\n' +
+                    '📋 ' + datosFormulario.metadata.formulario + '\n' +
+                    '✓ ' + respondidas + ' de ' + datosFormulario.metadata.total_preguntas + ' preguntas\n' +
+                    '📧 Destino: camino.chus@gmail.com\n\n' +
+                    '¿Continuar?'
+                )) {
+                    return false;
+                }
+                
+                // 3. Botón de carga
+                const btnEnviar = document.querySelector('[onclick*="enviarAMake"]');
+                if (btnEnviar) {
+                    btnEnviar.disabled = true;
+                    btnEnviar.innerHTML = '<span>📧 Enviando...</span>';
+                }
+                
+                // 4. Preparar email con Web3Forms
+                const payload = {
+                    access_key: "0538811a-c999-4950-829b-b72a9a38d74d",
+                    to_email: "camino.chus@gmail.com",
+                    from_name: "Sistema C³ Consultoría",
+                    subject: "C³ Cuestionario: " + datosFormulario.metadata.formulario,
+                    
+                    "Tipo": datosFormulario.metadata.formulario,
+                    "Fecha": new Date().toLocaleString('es-ES'),
+                    "Respondidas": respondidas + "/" + datosFormulario.metadata.total_preguntas,
+                    "Completado": Math.round((respondidas / datosFormulario.metadata.total_preguntas) * 100) + "%",
+                    "Promedio": (datosFormulario.estadisticas?.promedioGeneral || 0).toFixed(2),
+                    
+                    "DATOS_JSON": JSON.stringify(datosFormulario, null, 2)
+                };
+                
+                console.log('📤 Enviando a Web3Forms...');
+                
+                // 5. Enviar
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                
+                const result = await response.json();
+                console.log('📥 Respuesta:', result);
+                
+                if (result.success) {
+                    alert(
+                        '✅ ¡Cuestionario enviado!\n\n' +
+                        '📧 Enviado a: camino.chus@gmail.com\n' +
+                        '📊 ' + respondidas + ' respuestas\n\n' +
+                        'El JSON está en tu email para Excel.'
+                    );
+                    
+                    if (btnEnviar) {
+                        btnEnviar.disabled = false;
+                        btnEnviar.innerHTML = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg><span>ENVIAR A C³</span>';
+                    }
+                    return true;
+                } else {
+                    throw new Error(result.message || 'Error del servidor');
+                }
+                
+            } catch (error) {
+                console.error('❌ Error:', error);
+                
+                const btnEnviar = document.querySelector('[onclick*="enviarAMake"]');
+                if (btnEnviar) {
+                    btnEnviar.disabled = false;
+                    btnEnviar.innerHTML = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg><span>ENVIAR A C³</span>';
+                }
+                
+                alert(
+                    '❌ Error al enviar\n\n' +
+                    error.message + '\n\n' +
+                    'ALTERNATIVA:\n' +
+                    '→ Haz clic en "GENERAR PDF"\n' +
+                    '→ Envíalo a: camino.chus@gmail.com'
+                );
+                return false;
+            }
+        }
+
+
             
             // Añadir porcentaje de completitud
             datos.metadata.porcentaje_completado = Math.round(
@@ -10408,7 +10408,7 @@ const preguntasTexto = preguntasInfo;
         }
         
         
-        // Función para enviar a Make.com Y generar PDF
+        // Función para enviar a Email directo Y generar PDF
         async function enviarYGenerarPDF() {
             const enviado = await enviarAMake();
             if (enviado) {
@@ -13096,53 +13096,8 @@ const preguntasTexto = preguntasInfo;
            FUNCIONES V1.2 - NUEVAS CARACTERÍSTICAS
            ============================================ */
 
-        // Función para enviar datos a Make.com
-        async function enviarAMake() {
-            // Validar que hay respuestas
-            const respuestas = recopilarRespuestas();
-            
-            if (respuestas.totalRespondidas === 0) {
-                mostrarNotificacion('⚠️ No hay respuestas para enviar. Por favor, completa al menos una pregunta.', 'error');
-                return;
-            }
-
-            // Configuración del webhook de Make.com
-            const MAKE_WEBHOOK_URL = 'https://hook.eu2.make.com/YOUR_WEBHOOK_ID'; // ACTUALIZAR con tu webhook real
-            
-            try {
-                mostrarNotificacion('🔄 Enviando datos a Make.com...', 'info');
-                
-                const payload = {
-                    timestamp: new Date().toISOString(),
-                    empresa: document.querySelector('input[name="empresa"]')?.value || 'Sin especificar',
-                    contacto: document.querySelector('input[name="contacto"]')?.value || 'Sin especificar',
-                    totalPreguntas: respuestas.totalPreguntas,
-                    totalRespondidas: respuestas.totalRespondidas,
-                    porcentajeCompletado: Math.round((respuestas.totalRespondidas / respuestas.totalPreguntas) * 100),
-                    distribucionNiveles: respuestas.distribucion,
-                    respuestasDetalladas: respuestas.preguntas
-                };
-
-                const response = await fetch(MAKE_WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(payload)
-                });
-
-                if (response.ok) {
-                    mostrarNotificacion('✅ Datos enviados exitosamente a Make.com', 'success');
-                    console.log('Respuesta Make.com:', await response.json());
-                } else {
-                    throw new Error('Error en la respuesta del servidor');
-                }
-                
-            } catch (error) {
-                console.error('Error al enviar a Make.com:', error);
-                mostrarNotificacion('❌ Error al enviar datos. Verifica tu conexión y el webhook URL.', 'error');
-            }
-        }
+        // Función para enviar datos a Email directo
+        
 
         // Función auxiliar para recopilar todas las respuestas
         function recopilarRespuestas() {
