@@ -1,0 +1,11 @@
+# robots.txt para C³ Consultoría Estratégica
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://TU-USUARIO.github.io/c3-consultoria/sitemap.xml
+
+# Bloquear archivos sensibles
+Disallow: /docs/
+Disallow: /*.json$

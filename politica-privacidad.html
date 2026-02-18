@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad | C³ Consultoría Estratégica</title>
+  <meta name="description" content="Política de Privacidad de C³ Consultoría Estratégica conforme al RGPD y la LOPDGDD.">
+  <meta name="robots" content="noindex">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --dorado-c3: #B8860B;
+      --dorado-claro: #D4A029;
+      --dorado-oscuro: #8B6914;
+      --negro: #2C2C2C;
+      --gris: #6B6B6B;
+      --blanco: #FFFFFF;
+      --beige: #FAF8F5;
+      --beige-bg: #F5F2ED;
+      --borde: #D4C5A9;
+      --verde: #2D6A4F;
+      --verde-bg: #D8F3DC;
+      --ambar: #9B5E00;
+      --ambar-bg: #FFF3CD;
+      --rojo: #9B1D1D;
+      --rojo-bg: #F8D7DA;
+      --azul: #1A4A6B;
+      --azul-bg: #D1ECF1;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      color: var(--negro);
+      background: var(--beige);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--borde);
+      padding: 1rem 0;
+    }
+    .nav-inner {
+      max-width: 960px; margin: 0 auto;
+      padding: 0 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+    .nav-logo img { width: 44px; height: auto; }
+    .nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: var(--dorado-c3); letter-spacing: .04em; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gris); font-size: .9rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--dorado-c3); }
+    .nav-links a.active { color: var(--dorado-c3); border-bottom: 2px solid var(--dorado-c3); padding-bottom: 2px; }
+    .nav-back {
+      padding: .5rem 1.25rem;
+      background: var(--dorado-c3); color: var(--blanco);
+      border-radius: 6px; text-decoration: none; font-size: .875rem; font-weight: 600;
+      transition: background .2s, transform .2s;
+    }
+    .nav-back:hover { background: var(--dorado-oscuro); transform: translateY(-1px); }
+
+    /* ── HERO LEGAL ── */
+    .legal-hero {
+      background: linear-gradient(135deg, var(--beige) 0%, var(--beige-bg) 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      border-bottom: 1px solid var(--borde);
+      position: relative; overflow: hidden;
+    }
+    .legal-hero::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(184,134,11,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .badge {
+      display: inline-block;
+      padding: .3rem 1rem;
+      background: var(--dorado-c3); color: var(--blanco);
+      border-radius: 20px; font-size: .8rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .legal-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700; color: var(--dorado-c3);
+      line-height: 1.15; margin-bottom: 1rem;
+    }
+    .legal-hero p {
+      color: var(--gris); font-size: 1.05rem; max-width: 600px; margin: 0 auto 2rem;
+    }
+    .meta-strip {
+      display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+      font-size: .85rem; color: var(--gris);
+    }
+    .meta-strip span { display: flex; align-items: center; gap: .4rem; }
+
+    /* ── CONTENT ── */
+    .legal-wrap {
+      max-width: 860px; margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      border-left: 4px solid var(--dorado-c3);
+      border-radius: 8px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .toc h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; color: var(--dorado-c3);
+      margin-bottom: 1rem;
+    }
+    .toc ol { padding-left: 1.25rem; }
+    .toc li { margin-bottom: .4rem; }
+    .toc a { color: var(--negro); text-decoration: none; font-size: .95rem; transition: color .2s; }
+    .toc a:hover { color: var(--dorado-c3); }
+    .toc .toc-sub { padding-left: 1.25rem; margin-top: .3rem; list-style: disc; }
+    .toc .toc-sub li { margin-bottom: .2rem; }
+    .toc .toc-sub a { font-size: .875rem; color: var(--gris); }
+
+    /* ── SECCIONES ── */
+    section.legal-section { margin-bottom: 3.5rem; }
+    .section-anchor { display: block; height: 80px; margin-top: -80px; visibility: hidden; }
+
+    h2.sec-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem; font-weight: 700;
+      color: var(--dorado-c3);
+      padding-bottom: .6rem;
+      border-bottom: 2px solid var(--borde);
+      margin-bottom: 1.5rem;
+    }
+    h3.sub-title {
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--dorado-oscuro);
+      margin: 1.5rem 0 .6rem;
+    }
+    p { margin-bottom: 1rem; color: var(--negro); }
+    ul.legal-list, ol.legal-list {
+      padding-left: 1.5rem; margin-bottom: 1rem;
+    }
+    ul.legal-list li, ol.legal-list li {
+      margin-bottom: .5rem; color: var(--negro);
+    }
+    ul.legal-list li::marker { color: var(--dorado-c3); }
+
+    /* ── CALLOUTS ── */
+    .callout {
+      border-radius: 8px; padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0; display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .callout-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: .1rem; }
+    .callout-body { flex: 1; }
+    .callout-body strong { display: block; margin-bottom: .3rem; font-weight: 600; }
+    .callout-body p { margin: 0; font-size: .95rem; }
+    .callout.verde { background: var(--verde-bg); border-left: 4px solid var(--verde); }
+    .callout.verde .callout-body strong { color: var(--verde); }
+    .callout.ambar { background: var(--ambar-bg); border-left: 4px solid var(--ambar); }
+    .callout.ambar .callout-body strong { color: var(--ambar); }
+    .callout.azul { background: var(--azul-bg); border-left: 4px solid var(--azul); }
+    .callout.azul .callout-body strong { color: var(--azul); }
+
+    /* ── TABLA DERECHOS ── */
+    .rights-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .right-card {
+      background: var(--blanco); border: 1px solid var(--borde);
+      border-radius: 10px; padding: 1.25rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .right-card:hover { box-shadow: 0 6px 20px rgba(184,134,11,.12); transform: translateY(-2px); }
+    .right-card .letter {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--dorado-c3); color: var(--blanco);
+      font-weight: 700; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: .75rem;
+    }
+    .right-card strong { display: block; color: var(--dorado-oscuro); margin-bottom: .3rem; font-size: .95rem; }
+    .right-card p { font-size: .875rem; color: var(--gris); margin: 0; }
+
+    /* ── TABLA TRATAMIENTOS ── */
+    .treat-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .9rem; }
+    .treat-table th {
+      background: var(--dorado-c3); color: var(--blanco);
+      padding: .75rem 1rem; text-align: left; font-weight: 600;
+    }
+    .treat-table td {
+      padding: .75rem 1rem; border-bottom: 1px solid var(--borde);
+      vertical-align: top;
+    }
+    .treat-table tr:nth-child(even) td { background: var(--beige-bg); }
+    .treat-table tr:hover td { background: rgba(184,134,11,.05); }
+
+    /* ── TABLA COOKIES ── */
+    .cookie-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .875rem; }
+    .cookie-table th {
+      background: var(--negro); color: var(--blanco);
+      padding: .65rem 1rem; text-align: left;
+    }
+    .cookie-table td { padding: .65rem 1rem; border-bottom: 1px solid var(--borde); vertical-align: top; }
+    .cookie-table tr:nth-child(even) td { background: var(--beige-bg); }
+    .pill {
+      display: inline-block; padding: .2rem .65rem;
+      border-radius: 12px; font-size: .78rem; font-weight: 600;
+    }
+    .pill.esencial { background: var(--verde-bg); color: var(--verde); }
+    .pill.analitica { background: var(--azul-bg); color: var(--azul); }
+    .pill.marketing { background: var(--ambar-bg); color: var(--ambar); }
+    .pill.terceros  { background: #EDE7F6; color: #4527A0; }
+
+    /* ── BANNER COOKIES (reutilizable) ── */
+    .cookie-banner-preview {
+      position: relative;
+      background: var(--negro); color: var(--blanco);
+      border-radius: 12px; padding: 2rem;
+      margin: 2rem 0;
+    }
+    .cookie-banner-preview h4 { color: var(--dorado-claro); margin-bottom: .75rem; font-size: 1.05rem; }
+    .cookie-banner-preview p { font-size: .9rem; color: #CCC; margin-bottom: 1rem; }
+    .btn-row { display: flex; gap: .75rem; flex-wrap: wrap; }
+    .btn-accept { padding: .65rem 1.5rem; background: var(--dorado-c3); color: var(--blanco); border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: background .2s; font-size: .9rem; }
+    .btn-accept:hover { background: var(--dorado-oscuro); }
+    .btn-config { padding: .65rem 1.5rem; background: transparent; color: var(--blanco); border: 1px solid #666; border-radius: 6px; font-weight: 500; cursor: pointer; transition: border-color .2s; font-size: .9rem; }
+    .btn-config:hover { border-color: var(--dorado-claro); }
+    .btn-reject { padding: .65rem 1.5rem; background: transparent; color: #AAA; border: none; font-size: .85rem; cursor: pointer; text-decoration: underline; }
+
+    /* ── CONTACTO BOX ── */
+    .contact-box {
+      background: linear-gradient(135deg, var(--beige-bg), var(--blanco));
+      border: 1px solid var(--borde);
+      border-radius: 12px; padding: 2rem 2.5rem;
+      margin-top: 2rem;
+    }
+    .contact-box h3 { color: var(--dorado-c3); margin-bottom: 1rem; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; }
+    .contact-box a { color: var(--dorado-c3); text-decoration: none; font-weight: 600; }
+    .contact-box a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--negro); color: #AAA;
+      text-align: center; padding: 2rem;
+      font-size: .875rem;
+    }
+    footer a { color: var(--dorado-claro); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer .footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: .75rem; }
+
+    /* ── SCROLL TO TOP ── */
+    .scroll-top {
+      position: fixed; bottom: 2rem; right: 2rem;
+      width: 44px; height: 44px;
+      background: var(--dorado-c3); color: var(--blanco);
+      border: none; border-radius: 50%; cursor: pointer;
+      font-size: 1.2rem; box-shadow: 0 4px 12px rgba(0,0,0,.2);
+      opacity: 0; transition: opacity .3s, transform .3s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .scroll-top.visible { opacity: 1; }
+    .scroll-top:hover { transform: translateY(-3px); }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .meta-strip { gap: 1rem; }
+      .rights-grid { grid-template-columns: 1fr; }
+      .treat-table, .cookie-table { font-size: .78rem; }
+    }
+</style>
+</head>
+<body>
+  
+    <nav class="navbar">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4QnFaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA0LjQuMC1FeGl2MiI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOmlwdGNFeHQ9Imh0dHA6Ly9pcHRjLm9yZy9zdGQvSXB0YzR4bXBFeHQvMjAwOC0wMi0yOS8iIGlwdGNFeHQ6RGlnaXRhbFNvdXJjZVR5cGU9Imh0dHA6Ly9jdi5pcHRjLm9yZy9uZXdzY29kZXMvZGlnaXRhbHNvdXJjZXR5cGUvdHJhaW5lZEFsZ29yaXRobWljTWVkaWEiLz4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8P3hwYWNrZXQgZW5kPSJ3Ij8+/9sAQwACAQEBAQECAQEBAgICAgIEAwICAgIFBAQDBAYFBgYGBQYGBgcJCAYHCQcGBggLCAkKCgoKCgYICwwLCgwJCgoK/9sAQwECAgICAgIFAwMFCgcGBwoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoK/8AAEQgAzQDKAwERAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAA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" alt="C³ Consultoría Estratégica">
+          <span class="nav-brand">C³ Consultoría</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="politica-privacidad.html" class="active">Privacidad</a></li>
+          <li><a href="aviso-legal.html" >Aviso Legal</a></li>
+          <li><a href="politica-cookies.html" >Cookies</a></li>
+        </ul>
+        <a href="index.html" class="nav-back">← Volver al inicio</a>
+      </div>
+    </nav>
+
+  <header class="legal-hero">
+    <span class="badge">Documento Legal</span>
+    <h1>Política de Privacidad</h1>
+    <p>Tratamos tus datos con total transparencia, en cumplimiento del RGPD (UE) 2016/679 y la Ley Orgánica 3/2018 (LOPDGDD).</p>
+    <div class="meta-strip">
+      <span>📅 Última actualización: enero 2025</span>
+      <span>📍 Versión 1.0</span>
+      <span>🔒 RGPD · LOPDGDD · AI Act</span>
+    </div>
+  </header>
+
+  <div class="legal-wrap">
+
+    <!-- TOC -->
+    <nav class="toc" aria-label="Índice de contenidos">
+      <h2>📋 Índice</h2>
+      <ol class="legal-list">
+        <li><a href="#responsable">Responsable del tratamiento</a></li>
+        <li><a href="#datos-recogidos">Datos que recogemos</a></li>
+        <li><a href="#finalidades">Finalidades y base legal</a></li>
+        <li><a href="#conservacion">Plazos de conservación</a></li>
+        <li><a href="#destinatarios">Destinatarios y cesiones</a></li>
+        <li><a href="#derechos">Tus derechos ARCO-POL</a></li>
+        <li><a href="#ia">Decisiones automatizadas e IA</a></li>
+        <li><a href="#seguridad">Medidas de seguridad</a></li>
+        <li><a href="#menores">Menores de edad</a></li>
+        <li><a href="#cambios">Cambios en esta política</a></li>
+        <li><a href="#contacto-dpo">Contacto y reclamaciones</a></li>
+      </ol>
+    </nav>
+
+    <!-- 1. RESPONSABLE -->
+    <section class="legal-section">
+      <span class="section-anchor" id="responsable"></span>
+      <h2 class="sec-title">1. Responsable del Tratamiento</h2>
+      <div class="treat-table" style="overflow-x:auto">
+        <table class="treat-table">
+          <tr><th>Campo</th><th>Datos</th></tr>
+          <tr><td><strong>Denominación</strong></td><td>C³ Consultoría Estratégica</td></tr>
+          <tr><td><strong>Forma jurídica</strong></td><td>[Forma jurídica — autónomo / SL]</td></tr>
+          <tr><td><strong>NIF / CIF</strong></td><td>[NIF del titular]</td></tr>
+          <tr><td><strong>Domicilio social</strong></td><td>Barcelona, España</td></tr>
+          <tr><td><strong>Email de contacto</strong></td><td><a href="/cdn-cgi/l/email-protection#dbb3b4b7ba9bb8e8b8b4b5a8aeb7afb4a9b2baf5bea8"><span class="__cf_email__" data-cfemail="d1b9bebdb091b2e2b2bebfa2a4bda5bea3b8b0ffb4a2">[email&#160;protected]</span></a></td></tr>
+          <tr><td><strong>Email de privacidad</strong></td><td><a href="/cdn-cgi/l/email-protection#ea9a98839c8b89838e8b8eaa89d9898584999f869e8598838bc48f99"><span class="__cf_email__" data-cfemail="ed9d9f849b8c8e84898c89ad8ede8e82839e988199829f848cc3889e">[email&#160;protected]</span></a></td></tr>
+          <tr><td><strong>Teléfono</strong></td><td>[Teléfono de contacto]</td></tr>
+        </table>
+      </div>
+      <div class="callout azul">
+        <span class="callout-icon">ℹ️</span>
+        <div class="callout-body">
+          <strong>Delegado de Protección de Datos (DPD)</strong>
+          <p>Actualmente no existe obligación legal de designar un DPD para el volumen de tratamientos de C³. Si en el futuro se superan los umbrales del RGPD Art. 37, se procederá a su designación y se comunicará en este apartado.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. DATOS RECOGIDOS -->
+    <section class="legal-section">
+      <span class="section-anchor" id="datos-recogidos"></span>
+      <h2 class="sec-title">2. Datos que Recogemos y Origen</h2>
+      <p>C³ recoge únicamente los datos estrictamente necesarios para cada finalidad (<em>principio de minimización</em>, RGPD Art. 5.1.c). A continuación se detalla qué datos se recogen en cada punto de contacto:</p>
+
+      <h3 class="sub-title">2.1 Formulario de contacto (landing page)</h3>
+      <ul class="legal-list">
+        <li>Nombre y apellidos</li>
+        <li>Correo electrónico</li>
+        <li>Teléfono (opcional)</li>
+        <li>Descripción de la consulta</li>
+      </ul>
+
+      <h3 class="sub-title">2.2 Cuestionarios de madurez organizativa</h3>
+      <ul class="legal-list">
+        <li>Nombre legal y comercial de la actividad / empresa</li>
+        <li>Sector de actividad y antigüedad</li>
+        <li>Datos financieros aproximados (facturación, ingresos)</li>
+        <li>Número de empleados y estructura del equipo</li>
+        <li>Respuestas a preguntas de valoración (escala Likert 1-5)</li>
+        <li>Respuestas descriptivas en texto libre</li>
+        <li>Voz (transcripción opcional activada por el propio usuario)</li>
+      </ul>
+
+      <div class="callout ambar">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <strong>Categorías especiales de datos</strong>
+          <p>Los cuestionarios pueden contener, de forma indirecta, información sobre situación económica o salud del negocio. Estos datos se tratan con nivel de protección reforzado y no se comparten con terceros sin consentimiento explícito.</p>
+        </div>
+      </div>
+
+      <h3 class="sub-title">2.3 Datos técnicos recogidos automáticamente</h3>
+      <ul class="legal-list">
+        <li>Dirección IP (anonimizada tras 24h)</li>
+        <li>Navegador y sistema operativo</li>
+        <li>Páginas visitadas y duración de la sesión (solo si se aceptan cookies analíticas)</li>
+      </ul>
+    </section>
+
+    <!-- 3. FINALIDADES -->
+    <section class="legal-section">
+      <span class="section-anchor" id="finalidades"></span>
+      <h2 class="sec-title">3. Finalidades del Tratamiento y Base Legal</h2>
+      <div style="overflow-x:auto">
+        <table class="treat-table">
+          <tr>
+            <th>Finalidad</th>
+            <th>Base legal (RGPD)</th>
+            <th>Datos usados</th>
+          </tr>
+          <tr>
+            <td>Atender consultas y gestionar la relación precontractual</td>
+            <td>Art. 6.1.b — Ejecución de contrato / medidas precontractuales</td>
+            <td>Nombre, email, teléfono, consulta</td>
+          </tr>
+          <tr>
+            <td>Prestación del servicio de consultoría (diagnóstico y recomendaciones)</td>
+            <td>Art. 6.1.b — Ejecución del contrato</td>
+            <td>Todos los datos del cuestionario</td>
+          </tr>
+          <tr>
+            <td>Mejora del sistema de recomendación de IA (con datos anonimizados)</td>
+            <td>Art. 6.1.f — Interés legítimo (previa anonimización certificable k≥5)</td>
+            <td>Respuestas anonimizadas del cuestionario</td>
+          </tr>
+          <tr>
+            <td>Envío de comunicaciones comerciales propias (si hay consentimiento)</td>
+            <td>Art. 6.1.a — Consentimiento explícito</td>
+            <td>Email</td>
+          </tr>
+          <tr>
+            <td>Cumplimiento de obligaciones legales (facturación, auditoría)</td>
+            <td>Art. 6.1.c — Obligación legal</td>
+            <td>Datos de identificación y facturación</td>
+          </tr>
+          <tr>
+            <td>Análisis estadístico de uso del sitio web</td>
+            <td>Art. 6.1.a — Consentimiento (cookies analíticas)</td>
+            <td>IP anonimizada, páginas visitadas</td>
+          </tr>
+        </table>
+      </div>
+      <div class="callout verde">
+        <span class="callout-icon">✅</span>
+        <div class="callout-body">
+          <strong>Sin decisiones exclusivamente automatizadas con efectos jurídicos</strong>
+          <p>El sistema de IA de C³ genera recomendaciones estratégicas, pero ninguna decisión con efectos sobre el interesado se toma de forma exclusivamente automatizada. Un consultor humano revisa y valida siempre los outputs del sistema antes de presentarlos al cliente (RGPD Art. 22).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CONSERVACIÓN -->
+    <section class="legal-section">
+      <span class="section-anchor" id="conservacion"></span>
+      <h2 class="sec-title">4. Plazos de Conservación de Datos</h2>
+      <p>Los datos se conservarán durante el tiempo estrictamente necesario para cada finalidad, conforme al <em>principio de limitación del plazo de conservación</em> (RGPD Art. 5.1.e):</p>
+      <div style="overflow-x:auto">
+        <table class="treat-table">
+          <tr><th>Tipo de dato</th><th>Plazo de conservación</th><th>Justificación</th></tr>
+          <tr><td>Datos del formulario de contacto (no cliente)</td><td>12 meses desde el último contacto</td><td>Interés legítimo — gestión de leads</td></tr>
+          <tr><td>Datos del cuestionario (cliente activo)</td><td>Durante la relación contractual + 3 años</td><td>Posibles reclamaciones contractuales</td></tr>
+          <tr><td>Datos fiscales y de facturación</td><td>5 años</td><td>Ley General Tributaria Art. 66-70</td></tr>
+          <tr><td>Datos anonimizados de entrenamiento IA</td><td>Indefinido (no son datos personales tras anonimización)</td><td>Interés legítimo — mejora del servicio</td></tr>
+          <tr><td>Logs técnicos (IP)</td><td>24 horas (anonimización automática)</td><td>Principio de minimización</td></tr>
+          <tr><td>Datos de comunicaciones comerciales</td><td>Hasta la revocación del consentimiento</td><td>Consentimiento — RGPD Art. 6.1.a</td></tr>
+        </table>
+      </div>
+      <p>Transcurridos los plazos indicados, los datos serán suprimidos o anonimizados de forma segura e irreversible mediante proceso automático documentado.</p>
+    </section>
+
+    <!-- 5. DESTINATARIOS -->
+    <section class="legal-section">
+      <span class="section-anchor" id="destinatarios"></span>
+      <h2 class="sec-title">5. Destinatarios y Cesiones de Datos</h2>
+      <p><strong>C³ no vende ni cede datos personales a terceros con fines comerciales.</strong> Los datos pueden ser comunicados únicamente a los siguientes encargados del tratamiento, con los que se han suscrito los correspondientes Acuerdos de Encargo de Tratamiento (DPA):</p>
+      <div style="overflow-x:auto">
+        <table class="treat-table">
+          <tr><th>Encargado</th><th>Servicio</th><th>País / Garantías</th></tr>
+          <tr><td>[Proveedor de hosting / cloud]</td><td>Alojamiento web y base de datos</td><td>UE / Cláusulas contractuales tipo</td></tr>
+          <tr><td>[Proveedor de email transaccional]</td><td>Envío de respuestas automáticas</td><td>UE / Cláusulas contractuales tipo</td></tr>
+          <tr><td>[Herramienta analítica — si aplica]</td><td>Análisis de uso web (solo si acepta cookies)</td><td>UE / SCCs o servidor EU</td></tr>
+        </table>
+      </div>
+      <div class="callout azul">
+        <span class="callout-icon">🌍</span>
+        <div class="callout-body">
+          <strong>Transferencias internacionales</strong>
+          <p>En caso de que algún proveedor esté ubicado fuera del Espacio Económico Europeo, C³ garantizará la existencia de salvaguardas adecuadas (Decisión de adecuación, Cláusulas Contractuales Tipo o Normas Corporativas Vinculantes) antes de realizar cualquier transferencia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. DERECHOS -->
+    <section class="legal-section">
+      <span class="section-anchor" id="derechos"></span>
+      <h2 class="sec-title">6. Tus Derechos ARCO-POL</h2>
+      <p>De conformidad con el RGPD (Arts. 15-22) y la LOPDGDD, puedes ejercer los siguientes derechos en cualquier momento:</p>
+      <div class="rights-grid">
+        <div class="right-card">
+          <div class="letter">A</div>
+          <strong>Acceso</strong>
+          <p>Obtener confirmación de si tratamos tus datos y recibir una copia de los mismos.</p>
+        </div>
+        <div class="right-card">
+          <div class="letter">R</div>
+          <strong>Rectificación</strong>
+          <p>Solicitar la corrección de datos inexactos o incompletos.</p>
+        </div>
+        <div class="right-card">
+          <div class="letter">C</div>
+          <strong>Cancelación / Supresión</strong>
+          <p>Solicitar la eliminación de tus datos cuando ya no sean necesarios.</p>
+        </div>
+        <div class="right-card">
+          <div class="letter">O</div>
+          <strong>Oposición</strong>
+          <p>Oponerte al tratamiento basado en interés legítimo o con fines de marketing.</p>
+        </div>
+        <div class="right-card">
+          <div class="letter">P</div>
+          <strong>Portabilidad</strong>
+          <p>Recibir tus datos en formato estructurado y legible por máquina.</p>
+        </div>
+        <div class="right-card">
+          <div class="letter">L</div>
+          <strong>Limitación</strong>
+          <p>Solicitar que se restrinja el tratamiento en determinadas circunstancias.</p>
+        </div>
+        <div class="right-card">
+          <div class="letter">O</div>
+          <strong>Olvido</strong>
+          <p>Derecho al olvido: supresión completa cuando el tratamiento ya no tenga base legal.</p>
+        </div>
+        <div class="right-card">
+          <div class="letter">AI</div>
+          <strong>No automatización</strong>
+          <p>No ser objeto de decisiones basadas únicamente en tratamientos automatizados (Art. 22).</p>
+        </div>
+      </div>
+
+      <h3 class="sub-title">¿Cómo ejercer tus derechos?</h3>
+      <p>Puedes ejercer cualquiera de estos derechos de forma <strong>gratuita</strong> enviando un email a <a href="/cdn-cgi/l/email-protection#08787a617e696b616c696c486b3b6b67667b7d647c677a6169266d7b" style="color:var(--dorado-c3);font-weight:600;"><span class="__cf_email__" data-cfemail="bececcd7c8dfddd7dadfdafedd8dddd1d0cdcbd2cad1ccd7df90dbcd">[email&#160;protected]</span></a> con:</p>
+      <ul class="legal-list">
+        <li>Asunto: «Ejercicio de derechos RGPD — [Tipo de derecho]»</li>
+        <li>Nombre completo y copia del DNI u otro documento identificativo</li>
+        <li>Descripción concreta del derecho que deseas ejercer</li>
+      </ul>
+      <p><strong>Plazo de respuesta:</strong> máximo 30 días naturales desde la recepción de la solicitud (prorrogable 2 meses adicionales en casos complejos, con comunicación previa).</p>
+      <div class="callout ambar">
+        <span class="callout-icon">⚖️</span>
+        <div class="callout-body">
+          <strong>Derecho a reclamar ante la AEPD</strong>
+          <p>Si consideras que el tratamiento de tus datos no es conforme al RGPD, tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD) en <a href="https://www.aepd.es" target="_blank" rel="noopener" style="color:var(--ambar);">www.aepd.es</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. IA -->
+    <section class="legal-section">
+      <span class="section-anchor" id="ia"></span>
+      <h2 class="sec-title">7. Sistema de IA y Decisiones Automatizadas</h2>
+      <p>C³ utiliza un sistema de inteligencia artificial para generar recomendaciones estratégicas a partir de los resultados de los cuestionarios de madurez organizativa. En cumplimiento del RGPD Art. 22 y del Reglamento de IA de la UE (AI Act), informamos de lo siguiente:</p>
+      <ul class="legal-list">
+        <li><strong>No existe toma de decisiones exclusivamente automatizada</strong> con efectos jurídicos o significativos sobre el interesado. Todas las recomendaciones del sistema son revisadas y validadas por un consultor humano antes de ser comunicadas al cliente.</li>
+        <li><strong>Transparencia algorítmica:</strong> el sistema incluye trazabilidad completa de las recomendaciones. El consultor y el cliente pueden conocer qué áreas del cuestionario (bloques y puntuaciones Likert) han generado cada sugerencia.</li>
+        <li><strong>Datos de entrenamiento:</strong> el modelo se entrena exclusivamente con casos anonimizados (k-anonimato ≥ 5). Ningún dato personal identificable forma parte del conjunto de entrenamiento.</li>
+        <li><strong>Auditoría de sesgos:</strong> el sistema es auditado con periodicidad semestral para detectar y corregir sesgos de género, sectorial o geográfico en las recomendaciones generadas.</li>
+        <li><strong>Derecho a intervención humana:</strong> puedes solicitar en cualquier momento que una persona de C³ revise manualmente cualquier diagnóstico o recomendación generada por el sistema.</li>
+      </ul>
+    </section>
+
+    <!-- 8. SEGURIDAD -->
+    <section class="legal-section">
+      <span class="section-anchor" id="seguridad"></span>
+      <h2 class="sec-title">8. Medidas de Seguridad Técnicas y Organizativas</h2>
+      <p>En cumplimiento del RGPD Art. 32, C³ implementa las siguientes medidas de seguridad técnica y organizativa:</p>
+      <div style="overflow-x:auto">
+        <table class="treat-table">
+          <tr><th>Capa</th><th>Medida implementada</th></tr>
+          <tr><td><strong>Tránsito</strong></td><td>Cifrado TLS 1.3 / HTTPS en todas las comunicaciones</td></tr>
+          <tr><td><strong>Datos en reposo</strong></td><td>Cifrado AES-256 de la base de datos</td></tr>
+          <tr><td><strong>Acceso</strong></td><td>Autenticación multifactor (MFA) para acceso al panel de gestión. Control de acceso basado en roles (RBAC).</td></tr>
+          <tr><td><strong>Anonimización</strong></td><td>IP anonimizada en 24h. Datos de entrenamiento IA con k-anonimato certificable ≥ 5.</td></tr>
+          <tr><td><strong>Copias de seguridad</strong></td><td>Backup diario cifrado con retención de 30 días. Prueba de restauración mensual.</td></tr>
+          <tr><td><strong>Gestión de incidentes</strong></td><td>Protocolo de notificación de brechas a la AEPD en ≤ 72h (RGPD Art. 33). Notificación a afectados si el riesgo es alto (Art. 34).</td></tr>
+          <tr><td><strong>Proveedores</strong></td><td>DPA firmado con todos los encargados del tratamiento. Auditoría de cumplimiento anual.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- 9. MENORES -->
+    <section class="legal-section">
+      <span class="section-anchor" id="menores"></span>
+      <h2 class="sec-title">9. Menores de Edad</h2>
+      <p>Los servicios de C³ Consultoría Estratégica están dirigidos exclusivamente a personas mayores de 18 años que actúen en calidad de empresarios, autónomos o representantes de empresas. No recogemos conscientemente datos de menores de edad. Si detectáramos que hemos recibido datos de un menor, procederemos a su supresión inmediata.</p>
+    </section>
+
+    <!-- 10. CAMBIOS -->
+    <section class="legal-section">
+      <span class="section-anchor" id="cambios"></span>
+      <h2 class="sec-title">10. Cambios en esta Política</h2>
+      <p>C³ se reserva el derecho a actualizar esta Política de Privacidad para adaptarla a cambios normativos, jurisprudenciales o del propio servicio. Cualquier modificación relevante será comunicada a los usuarios registrados por email con un mínimo de 15 días de antelación. La fecha de última actualización siempre estará visible en la cabecera de este documento.</p>
+    </section>
+
+    <!-- 11. CONTACTO -->
+    <section class="legal-section">
+      <span class="section-anchor" id="contacto-dpo"></span>
+      <h2 class="sec-title">11. Contacto y Reclamaciones</h2>
+      <div class="contact-box">
+        <h3>¿Tienes preguntas sobre el tratamiento de tus datos?</h3>
+        <p>Puedes contactarnos por cualquiera de estos canales:</p>
+        <ul class="legal-list">
+          <li>📧 Email de privacidad: <a href="/cdn-cgi/l/email-protection#94e4e6fde2f5f7fdf0f5f0d4f7a7f7fbfae7e1f8e0fbe6fdf5baf1e7"><span class="__cf_email__" data-cfemail="6c1c1e051a0d0f05080d082c0f5f0f03021f190018031e050d42091f">[email&#160;protected]</span></a></li>
+          <li>📧 Email general: <a href="/cdn-cgi/l/email-protection#4b2324272a0b2878282425383e273f2439222a652e38"><span class="__cf_email__" data-cfemail="7d1512111c3d1e4e1e12130e081109120f141c53180e">[email&#160;protected]</span></a></li>
+          <li>📍 Dirección postal: C³ Consultoría Estratégica, Barcelona, España</li>
+        </ul>
+        <p style="margin-top:1rem">Si no obtienes una respuesta satisfactoria en el plazo de 30 días, tienes derecho a presentar una reclamación ante la <strong>Agencia Española de Protección de Datos (AEPD)</strong>: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a></p>
+      </div>
+    </section>
+
+  </div>
+
+  
+    <footer>
+      <div class="footer-links">
+        <a href="politica-privacidad.html">Política de Privacidad</a>
+        <a href="aviso-legal.html">Aviso Legal</a>
+        <a href="politica-cookies.htm

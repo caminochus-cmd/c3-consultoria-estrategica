@@ -1,0 +1,46 @@
+# Configuración de GitHub Pages para C³ Consultoría
+
+title: C³ Consultoría Estratégica
+description: Sistema de diagnóstico organizativo para PYMEs y autónomos
+author: C³ Consultoría
+email: camino.chus@gmail.com
+
+# URL configuration
+baseurl: "" # Dejar vacío si el repo es tu-usuario.github.io
+url: "" # Se configurará automáticamente por GitHub Pages
+
+# Build settings
+markdown: kramdown
+theme: null # No usamos theme Jekyll, es HTML puro
+
+# Exclude from processing
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+  - docs/
+
+# Include specific files
+include:
+  - _config.yml
+  - CNAME
+
+# Enable plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# SEO
+lang: es_ES
+locale: es_ES
+
+# Social
+twitter:
+  username: 
+  card: summary_large_image
+
+# Google Analytics (opcional - añadir tu ID)
+# google_analytics: UA-XXXXXXXXX-X
+
+# Timezone
+timezone: Europe/Madrid
